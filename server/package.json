@@ -6,16 +6,25 @@
   "license": "AGPL-3.0-or-later",
   "private": true,
   "scripts": {
-    "watch-typescript": "ncc build --watch --out dist src/index.ts",
+    "ncc-watch-typescript": "ncc build --watch --out dist src/index.ts",
+    "watch-typescript": "tsc --watch",
     "watch-node": "nodemon dist/index.js",
     "start": "concurrently npm:watch-*",
-    "build": "ncc build --out dist src/index.ts"
+    "ncc-build": "ncc build -e type-graphql -e graphql --out dist src/index.ts",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/node": "^17.0.5",
-    "@vercel/ncc": "^0.33.1",
+    "@vercel/ncc": "0.30.0",
     "concurrently": "^6.5.1",
     "nodemon": "^2.0.15",
     "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "class-validator": "^0.13.2",
+    "graphql": "15.3.0",
+    "graphql-yoga": "^2.0.0-alpha.6",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   }
 }
