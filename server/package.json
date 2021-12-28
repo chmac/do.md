@@ -1,0 +1,21 @@
+{
+  "name": "do.md-server",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "author": "Callum Macdonald",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "watch-typescript": "ncc build --watch --out dist src/index.ts",
+    "watch-node": "nodemon dist/index.js",
+    "start": "concurrently npm:watch-*",
+    "build": "ncc build --out dist src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "@vercel/ncc": "^0.33.1",
+    "concurrently": "^6.5.1",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.4"
+  }
+}
